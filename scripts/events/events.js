@@ -2,6 +2,7 @@ const weekElem = document.querySelector('.calendar__week');
 const deleteEventBtn = document.querySelector('.delete-event-btn');
 
 function handleEventClick(event) {
+    console.log(event);
     // если произощел клик по событию, то нужно паказать попап с кнопкой удаления
 }
 
