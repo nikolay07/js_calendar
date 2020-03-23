@@ -5,9 +5,10 @@ export const getStartOfWeek = date => {
     const dateCopy = new Date(date);
     const dayOfWeek = dateCopy.getDay();
     const difference =
-        dayOfWeek === 0
-            ? -6 // for Sunday
-            : 1 - dayOfWeek;
+        dayOfWeek === 0 ?
+        -6 // for Sunday
+        :
+        1 - dayOfWeek;
     const monday = new Date(dateCopy.setDate(date.getDate() + difference));
     return new Date(monday.getFullYear(), monday.getMonth(), monday.getDate());
 };
@@ -60,11 +61,16 @@ export const getDisplayedMonth = date => {
         return `${monthsNames[startMonth]} ${startYear}`;
     }
     const isSameYear = startYear === endYear;
-    return isSameYear
-        ? `${monthsNames[startMonth]} - ${monthsNames[endMonth]} ${startYear}`
-        : `${monthsNames[startMonth]} ${startYear} - ${monthsNames[endMonth]} ${endYear}`;
+    return isSameYear ?
+        `${monthsNames[startMonth]} - ${monthsNames[endMonth]} ${startYear}` :
+        `${monthsNames[startMonth]} ${startYear} - ${monthsNames[endMonth]} ${endYear}`;
 };
 
 export const createNumbersArray = (from, to) => {
     // ф-ция должна генерировать массив целых чисел в указанном промежутке
+    const result = [];
+    for (let i = from; i <= to; i++) {
+        result.push(i);
+    }
+    return result;
 };
