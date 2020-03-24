@@ -4,6 +4,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  overflow-y: scroll;
 }
 
 .button {
@@ -56,6 +57,41 @@
 
 .hidden {
   display: none;
+}
+
+.header {
+  display: flex;
+  align-items: stretch;
+  border-bottom: 1px solid #d2d0d0;
+  background-color: white;
+  position: fixed;
+  width: 100vw;
+}
+
+.button {
+  margin: 10px;
+}
+
+.calendar__time-scale {
+  display: flex;
+  flex-direction: column;
+  color: grey;
+  width: 55px;
+  margin-top: 65px;
+}
+.calendar__time-scale_hours {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding-right: 10px;
+  width: 55px;
+  height: 60px;
+  font-size: 12px;
+}
+.calendar__time-scale_grinvich {
+  font-size: 12px;
+  margin: 5px;
 }
 
 * {

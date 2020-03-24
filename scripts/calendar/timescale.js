@@ -1,13 +1,16 @@
-// import { getDateTime } from '../common/time.utils.js';
 import { createNumbersArray } from '../common/time.utils.js';
 
 export const renderTimescale = () => {
     // ф-ция должна генерировать разметку для боковой шкалы времени (24 часа)
     // полученную разметку вставьте на страницу с помощью innerHTML
-    const timeScale = createNumbersArray(0, 24)
-        .map(elem =>
-            `<div class="calendar__time-scale_hours" id="${elem < 10 ? "0" + elem : elem}:00">${elem < 10 ? "0" + elem : elem}:00</div>`)
+    const timeScale = createNumbersArray(0, 23)
+        .map(elem => {
+            let time = `${elem < 10 ? "0" + elem : elem}:00`;
+            return `<div class="calendar__time-scale_hours" id="${time}">${time}</div>`
+        })
         .join('');
-    console.log(timeScale);
-    document.querySelector('.calendar__time-scale').innerHTML = timeScale;
+    document.querySelector('.calendar__time-scale').innerHTML = `<div class="calendar__time-scale_grinvich">GMT+02</div>`
+    document.querySelector('.calendar__time-scale').innerHTML += timeScale;
+
+
 };
