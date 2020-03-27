@@ -9,8 +9,8 @@ export const renderTimescale = () => {
             return `<div class="calendar__time-scale_hours" id="${time}">${time}</div>`
         })
         .join('');
-    document.querySelector('.calendar__time-scale').innerHTML = `<div class="calendar__time-scale_grinvich">GMT+02</div>`
-    document.querySelector('.calendar__time-scale').innerHTML += timeScale;
+
+    document.querySelector('.calendar__time-scale').innerHTML = timeScale;
 
 
 };

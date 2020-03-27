@@ -66,10 +66,73 @@
   background-color: white;
   position: fixed;
   width: 100vw;
+  padding: 10px;
+  font-size: 25px;
 }
 
 .button {
-  margin: 10px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  width: 120px;
+  height: 40px;
+  background-color: #fff;
+  margin: 0 10px;
+  font-weight: 700;
+  color: darkblue;
+  font-size: 20px;
+}
+
+.calendar__header {
+  display: flex;
+  width: 100vw;
+  padding-top: 60px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+.calendar__header__element {
+  margin-left: 20px;
+}
+.calendar__week {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  margin-top: 10px;
+}
+.calendar__day {
+  width: 15%;
+  border-right: 1px solid lightgray;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.calendar__day:last-child {
+  border: none;
+}
+.calendar__time-slot {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 60px;
+  border-top: 1px solid lightgrey;
+}
+.calendar__time-slot:first-child {
+  border: none;
+}
+.calendar__header-day {
+  margin-top: 20px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 300;
+}
+.calendar__header-day:first-child {
+  margin-left: 55px;
+}
+.calendar__header-number {
+  margin-top: 15px;
+  font-size: 30px;
 }
 
 .calendar__time-scale {
@@ -77,7 +140,7 @@
   flex-direction: column;
   color: grey;
   width: 55px;
-  margin-top: 65px;
+  margin-top: 5px;
 }
 .calendar__time-scale_hours {
   display: flex;
@@ -92,6 +155,10 @@
 .calendar__time-scale_grinvich {
   font-size: 12px;
   margin: 5px;
+  padding-top: 60px;
+}
+.calendar__week-container {
+  display: flex;
 }
 
 * {

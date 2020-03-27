@@ -5,7 +5,7 @@
             flex-direction: column;
             color: grey;
             width: 55px;
-            margin-top: 65px;
+            margin-top: 5px;
             &_hours {
                 display: flex;
                 flex-direction: column;
@@ -19,6 +19,10 @@
             &_grinvich {
                 font-size: 12px;
                 margin: 5px;
+                padding-top: 60px;
             }
+        }
+        &__week-container {
+            display: flex;
         }
     }
