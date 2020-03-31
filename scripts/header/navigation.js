@@ -17,22 +17,21 @@ const onChangeWeek = e => {
     const startOfWeek = getItem('displayedWeekStart');
     const firstDayOfWeek = new Date(startOfWeek);
 
-    const todayWeek = e.target.classList.contains('navigation__today-btn');
-    const nextWeek = e.target.classList.contains('fa-chevron-right');
-    const prewWeek = e.target.classList.contains('fa-chevron-left');
+    const todayWeek = document.querySelector('.navigation__today-btn');
+    todayWeek.addEventListener('click', () => { setItem('displayedWeekStart', getStartOfWeek(new Date())) });
 
-
-    if (nextWeek) {
+    const nextWeek = document.querySelector('.fa-chevron-right');
+    nextWeek.addEventListener('click', () => {
         firstDayOfWeek.setDate(startOfWeek.getDate() + 7);
-        setItem('displayedWeekStart', firstDayOfWeek)
-    }
-    if (prewWeek) {
+        setItem('displayedWeekStart', firstDayOfWeek);
+    });
+
+    const prewWeek = document.querySelector('.fa-chevron-left');
+    prewWeek.addEventListener('click', () => {
         firstDayOfWeek.setDate(startOfWeek.getDate() - 7);
-        setItem('displayedWeekStart', firstDayOfWeek)
-    }
-    if (todayWeek) {
-        setItem('displayedWeekStart', getStartOfWeek(new Date()))
-    }
+        setItem('displayedWeekStart', firstDayOfWeek);
+    });
+
     renderHeader();
     renderWeek();
     renderCurrentMonth();
