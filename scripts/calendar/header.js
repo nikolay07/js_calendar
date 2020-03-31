@@ -10,17 +10,21 @@ export const renderHeader = () => {
     // полученную разметку вставить на страницу с помощью innerHTML
     // в дата атрибуте каждой ячейки должно хранить для какого часа эта ячейка
 
-    const header = document.querySelector('.calendar__header')
-    let days = document.createElement('div');
+    const header = document.querySelector('.calendar__header');
+    const days = document.createElement('div');
     days.classList.add('days');
 
     const day = createNumbersArray(0, 6)
         .map(elem => {
-            const firstDayOfWeek = getItem('displayedWeekStart')
-            return `<div class="calendar__header-day" data-day="${elem}">${(daysOfWeek[elem]).toUpperCase()}<div class="calendar__header-number" data-number="">
-                      ${generateWeekRange(firstDayOfWeek)[elem].getDate()}
-            </div></div>`
-        }).join('');
+            const firstDayOfWeek = getItem('displayedWeekStart');
+            return `<div class="calendar__header-day" data-day="${elem}">
+                        ${(daysOfWeek[elem]).toUpperCase()}
+                            <div class="calendar__header-number" data-number="">
+                                ${generateWeekRange(firstDayOfWeek)[elem].getDate()}
+                            </div>
+                    </div>`
+        })
+        .join('');
     header.innerHTML = `<div class="calendar__time-scale_grinvich">GMT+02</div>`
     header.innerHTML += day;
 };
