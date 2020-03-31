@@ -18,6 +18,22 @@ const createEventElement = event => {
     // ф-ция создает DOM элемент события
     // событие должно позиционироваться абсолютно внутри нудной ячейки времени внутри дня
     // полезно будет добавить id события в дата атрибут
+    const { id, title, description, start, end } = event;
+    const eventId = event[id];
+    const eventTitle = event[title];
+    const eventDescription = event[description];
+    const eventStart = event[start];
+    const eventEnd = event[end];
+    const domElement = document.createElement('div');
+    const currentEvent = `<div data-event-id=${eventId}>
+                            <div class="event__title">${eventTitle}</div>
+                            <div class="event__description">${eventDescription}</div>
+                            <div class="event__time">"${eventStart} - ${eventEnd}"</div>
+                          </div>`;
+    domElement.innerHTML = currentEvent;
+    return domElement;
+
+
 };
 
 export const renderEvents = () => {

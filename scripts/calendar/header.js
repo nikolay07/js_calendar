@@ -3,8 +3,7 @@ import { generateWeekRange } from '../common/time.utils.js';
 import { createNumbersArray } from '../common/time.utils.js';
 //import { openModal } from '../common/modal.js';
 
-const daysOfWeek = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
-const daysOfMonth = ['22', '23', '24', '25', '26', '27', '28'];
+const daysOfWeek = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
 
 export const renderHeader = () => {
     // функция должна сгенерировать разметку c днями отображаемой недели (только день недели и число в месяце)
@@ -16,8 +15,12 @@ export const renderHeader = () => {
     days.classList.add('days');
 
     const day = createNumbersArray(0, 6)
-        .map(elem => `
-    <div class="calendar__header-day" data-day="${elem}">${daysOfWeek[elem]}<div class="calendar__header-number" data-number="">${daysOfMonth[elem]}</div></div>`).join('');
+        .map(elem => {
+            const monday = getItem('displayedWeekStart')
+            return `<div class="calendar__header-day" data-day="${elem}">${daysOfWeek[elem]}<div class="calendar__header-number" data-number="">
+                      ${generateWeekRange(monday)[elem].getDate()}
+            </div></div>`
+        }).join('');
     header.innerHTML = `<div class="calendar__time-scale_grinvich">GMT+02</div>`
     header.innerHTML += day;
 };
