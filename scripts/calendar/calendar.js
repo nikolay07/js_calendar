@@ -3,7 +3,6 @@ import { generateWeekRange, createNumbersArray } from '../common/time.utils.js';
 import { renderEvents } from '../events/events.js';
 
 const week = document.querySelector('.calendar__week');
-// let number = 0;
 const generateDay = () => {
     // функция должна сгенерировать и вернуть разметку недели в виде строки
     // разметка состоит из 24 часовых временных слотов (.calendar__time-slot)
@@ -11,7 +10,6 @@ const generateDay = () => {
         .map(elem => `<div class="calendar__time-slot" data-time="${elem}"></div>`)
         .join('');
     return time;
-
 };
 
 export const renderWeek = () => {
@@ -20,7 +18,6 @@ export const renderWeek = () => {
     // каждый день должен содержать в дата атрибуте порядковый номер для в месяце
     // какую неделю отображать - берем из storage
     // после того, как отрисовали всю сетку для отображаемой недели - добавляем события методом renderEvents
-
     const days = createNumbersArray(1, 7)
         .map(elem => `<div class="calendar__day" data-day="${elem}">
                             ${generateDay()}
