@@ -19,18 +19,36 @@ const onChangeWeek = e => {
 
     const todayWeek = document.querySelector('.navigation__today-btn');
     todayWeek.addEventListener('click', () => { setItem('displayedWeekStart', getStartOfWeek(new Date())) });
+    todayWeek.addEventListener('mouseover', () => {
+        todayWeek.classList.add('todayWeek');
+    })
+    todayWeek.addEventListener('mouseout', () => {
+        todayWeek.classList.remove('todayWeek');
+    })
 
     const nextWeek = document.querySelector('.fa-chevron-right');
     nextWeek.addEventListener('click', () => {
         firstDayOfWeek.setDate(startOfWeek.getDate() + 7);
         setItem('displayedWeekStart', firstDayOfWeek);
     });
+    nextWeek.addEventListener('mousedown', () => {
+        nextWeek.classList.add('nextWeek');
+    })
+    nextWeek.addEventListener('mouseup', () => {
+        nextWeek.classList.remove('nextWeek');
+    })
 
     const prewWeek = document.querySelector('.fa-chevron-left');
     prewWeek.addEventListener('click', () => {
         firstDayOfWeek.setDate(startOfWeek.getDate() - 7);
         setItem('displayedWeekStart', firstDayOfWeek);
     });
+    prewWeek.addEventListener('mousedown', () => {
+        prewWeek.classList.add('prewWeek');
+    })
+    prewWeek.addEventListener('mouseup', () => {
+        prewWeek.classList.remove('prewWeek');
+    })
 
     renderHeader();
     renderWeek();
