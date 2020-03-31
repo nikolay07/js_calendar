@@ -1,6 +1,5 @@
 import { getItem, setItem } from '../common/storage.js';
 import { renderWeek } from '../calendar/calendar.js';
-import { renderRedLine } from '../calendar/redLine.js';
 import { renderHeader } from '../calendar/header.js';
 import { getStartOfWeek, getDisplayedMonth } from '../common/time.utils.js';
 
@@ -12,28 +11,28 @@ function renderCurrentMonth() {
     displayedMonthElem.innerHTML = `${getDisplayedMonth(getItem('displayedWeekStart'))}`
 }
 
-const onChangeWeek = event => {
+const onChangeWeek = e => {
     // при переключении недели обновите displayedWeekStart в storage
     // и перерисуйте все необходимые элементы страницы (renderHeader, renderWeek, renderCurrentMonth, renderRedLine)
-    const monday = getItem('displayedWeekStart');
-    const inWeek = new Date(monday);
+    const startOfWeek = getItem('displayedWeekStart');
+    const firstDayOfWeek = new Date(startOfWeek);
 
-    const next = event.target.classList.contains('fa-chevron-right');
-    const prew = event.target.classList.contains('fa-chevron-left');
-    const today = event.target.classList.contains('navigation__today-btn');
+    const todayWeek = e.target.classList.contains('navigation__today-btn');
+    const nextWeek = e.target.classList.contains('fa-chevron-right');
+    const prewWeek = e.target.classList.contains('fa-chevron-left');
 
-    if (next) {
-        inWeek.setDate(monday.getDate() + 7);
-        setItem('displayedWeekStart', inWeek)
+
+    if (nextWeek) {
+        firstDayOfWeek.setDate(startOfWeek.getDate() + 7);
+        setItem('displayedWeekStart', firstDayOfWeek)
     }
-    if (prew) {
-        inWeek.setDate(monday.getDate() - 7);
-        setItem('displayedWeekStart', inWeek)
+    if (prewWeek) {
+        firstDayOfWeek.setDate(startOfWeek.getDate() - 7);
+        setItem('displayedWeekStart', firstDayOfWeek)
     }
-    if (today) {
+    if (todayWeek) {
         setItem('displayedWeekStart', getStartOfWeek(new Date()))
     }
-    console.log(getItem('displayedWeekStart', inWeek))
     renderHeader();
     renderWeek();
     renderCurrentMonth();
