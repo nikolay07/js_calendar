@@ -16,9 +16,9 @@ export const renderHeader = () => {
 
     const day = createNumbersArray(0, 6)
         .map(elem => {
-            const monday = getItem('displayedWeekStart')
+            const firstDayOfWeek = getItem('displayedWeekStart')
             return `<div class="calendar__header-day" data-day="${elem}">${daysOfWeek[elem]}<div class="calendar__header-number" data-number="">
-                      ${generateWeekRange(monday)[elem].getDate()}
+                      ${generateWeekRange(firstDayOfWeek)[elem].getDate()}
             </div></div>`
         }).join('');
     header.innerHTML = `<div class="calendar__time-scale_grinvich">GMT+02</div>`
