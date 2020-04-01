@@ -19,7 +19,7 @@ export const renderHeader = () => {
             const firstDayOfWeek = getItem('displayedWeekStart');
             return `<div class="calendar__header-day" data-day="${elem}">
                         ${(daysOfWeek[elem]).toUpperCase()}
-                            <div class="calendar__header-number" data-number="">
+                            <div class="calendar__header-number" data-number=" ${generateWeekRange(firstDayOfWeek)[elem].getDate()}">
                                 ${generateWeekRange(firstDayOfWeek)[elem].getDate()}
                             </div>
                     </div>`
